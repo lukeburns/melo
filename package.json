@@ -1,0 +1,16 @@
+{
+  "name": "melo",
+  "version": "0.0.1",
+  "description": "composable, reactive dom elements",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luke Burns",
+  "license": "MIT",
+  "dependencies": {
+    "@nx-js/observer-util": "^4.1.1",
+    "bel": "^5.1.6",
+    "nanomorph": "^5.1.3"
+  }
+}
