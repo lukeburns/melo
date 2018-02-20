@@ -4,7 +4,7 @@ const bel = require('bel')
 const { observable, observe, unobserve, isObservable, raw } = util
 
 function melo (strings) {
-  if (!strings.raw) return melo.observable(strings)
+  if (!(strings instanceof Array) || !strings.raw) return melo.observable(strings)
   let args = Array.from(arguments)
   
   // render initial element

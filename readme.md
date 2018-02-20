@@ -1,10 +1,12 @@
 # melo
 
-composable, reactive dom elements
+composable, reactive dom elements using tagged template literals
 
 ```js
 npm install melo
 ```
+
+powered by [bel](https://github.com/shama/bel), [nanomorph](https://github.com/choojs/nanomorph), and [observer-util](https://github.com/nx-js/observer-util)
 
 ## example
 
