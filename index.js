@@ -2,17 +2,22 @@ const util = require('@nx-js/observer-util')
 const morph = require('nanomorph')
 const bel = require('bel')
 const { observable, observe, unobserve, isObservable, raw } = util
+let index = 0
 
 function melo (strings) {
   if (!(strings instanceof Array) || !strings.raw) return melo.observable(strings)
   let args = Array.from(arguments)
   
   // render initial element
+  let id = index++
   const element = bel.apply(bel, args.map(arg => arg.__ ? raw(devirtualize(arg)) : arg))
-  
+  element.id = element.id || id
+    
   // update via nanomorph on state changes
   const reaction = observe(() => {
-    morph(element, bel.apply(bel, args.map(arg => arg.__ ? arg.__.selector.reduce((prev, next) => prev[next], arg.__.root) : arg)))
+    let update = bel.apply(bel, args.map(arg => arg.__ ? arg.__.selector.reduce((prev, next) => prev[next], arg.__.root) : arg))
+    update.id = update.id || id
+    morph(element, update)
   })
   element.unobserve = () => unobserve(reaction)
   
