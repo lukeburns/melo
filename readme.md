@@ -13,7 +13,7 @@ powered by [bel](https://github.com/shama/bel), [nanomorph](https://github.com/c
 ```js
 const melo = require('melo')
 
-let state = melo({ time: Date.now(), clicks: 0 })
+let state = melo({ time: Date.now() })
 
 setInterval(() => state.time = Date.now(), 1)
 
